@@ -1,0 +1,3 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+* * * * * /usr/bin/curl https://raw.githubusercontent.com/living-bio/pyconapac-rpi/master/install.sh | /bin/bash > /tmp/init.out

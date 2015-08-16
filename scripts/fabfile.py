@@ -44,6 +44,10 @@ def update_network():
     # sudo(r'echo "%s" > /etc/wpa_supplicant/wpa_supplicant.conf' % open('./wpa_supplicant.conf').read())
     # sudo('chmod 600 /etc/wpa_supplicant/wpa_supplicant.conf')
 
+
+def test_connection():
+    run('ping -c 4 www.google.com')
+
 @parallel
 def setup():
     # install_requirements()

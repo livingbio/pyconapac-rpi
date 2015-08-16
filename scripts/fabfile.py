@@ -39,12 +39,17 @@ def update_network():
     # sudo('chmod 644 /etc/network/interfaces')
     put('./wpa_supplicant.conf', '/etc/wpa_supplicant/wpa_supplicant.conf', use_sudo=True, mode=600)
 
+    put('./8192cu.conf', '/etc/modprobe.d/8192cu.conf', use_sudo=True)
+    # sudo('dhclient wlan0')
     # sudo(r'echo "%s" > /etc/wpa_supplicant/wpa_supplicant.conf' % open('./wpa_supplicant.conf').read())
     # sudo('chmod 600 /etc/wpa_supplicant/wpa_supplicant.conf')
 
 @parallel
 def setup():
-    install_requirements()
+    # install_requirements()
     update_cron()
     update_network()
     reboot()
+
+def check():
+    pass

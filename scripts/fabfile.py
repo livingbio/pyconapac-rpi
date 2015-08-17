@@ -47,8 +47,10 @@ def update_network(conf):
 def test_connection():
     run('ping -c 4 www.google.com')
 
+@parallel
 def deploy():
     put('./info.py', '/home/pi/info.py', use_sudo=True, mode=777)
+    put('./buzzer.py', '/home/pi/buzzer.py', use_sudo=True, mode=777)
 
 @parallel
 def setup():
@@ -60,3 +62,6 @@ def setup():
 def check():
     sudo('python /home/pi/info.py')
 
+
+def pipi():
+    sudo('python /home/pi/buzzer.py')

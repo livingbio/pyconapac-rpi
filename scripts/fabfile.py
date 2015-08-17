@@ -33,7 +33,7 @@ def install_requirements():
         for iline in ifile:
             sudo(iline)
 
-def update_network():
+def update_network(conf):
     put('./interfaces', '/etc/network/interfaces', use_sudo=True, mode=644)
     # sudo('echo "%s" > /etc/network/interfaces' % open('./interfaces').read())
     # sudo('chmod 644 /etc/network/interfaces')
@@ -44,9 +44,11 @@ def update_network():
     # sudo(r'echo "%s" > /etc/wpa_supplicant/wpa_supplicant.conf' % open('./wpa_supplicant.conf').read())
     # sudo('chmod 600 /etc/wpa_supplicant/wpa_supplicant.conf')
 
-
 def test_connection():
     run('ping -c 4 www.google.com')
+
+def deploy():
+    put('./info.py', '/home/pi/info.py', use_sudo=True, mode=777)
 
 @parallel
 def setup():
@@ -56,4 +58,5 @@ def setup():
     reboot()
 
 def check():
-    pass
+    sudo('python /home/pi/info.py')
+

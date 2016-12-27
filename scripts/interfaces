@@ -1,0 +1,20 @@
+# /etc/network/interfaces
+# chmod 644
+
+# in current setting, not support hot plugin yet
+# hot plug in need to dhclient / ifup / ifdown
+# wifi / len hot switch still have issues to ping google.com (rount issus)
+
+auto lo
+iface lo inet loopback
+
+auto eth0
+allow-hotplug eth0
+iface eth0 inet dhcp
+
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+

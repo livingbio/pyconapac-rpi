@@ -5,7 +5,7 @@ spidev==3.1
 
 # Python HTTP for Humans.
 # https://pypi.python.org/pypi/requests/2.9.1
-requests==2.9.1
+requests==2.33.0
 
 
 -e git://github.com/lthiery/SPI-Py.git@0.4.1#egg=spi
